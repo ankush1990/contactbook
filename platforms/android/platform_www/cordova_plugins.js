@@ -16,14 +16,6 @@ module.exports = [
         "runs": true
     },
     {
-        "id": "onesignal-cordova-plugin.OneSignal",
-        "file": "plugins/onesignal-cordova-plugin/www/OneSignal.js",
-        "pluginId": "onesignal-cordova-plugin",
-        "clobbers": [
-            "OneSignal"
-        ]
-    },
-    {
         "id": "cordova-plugin-contacts.contacts",
         "file": "plugins/cordova-plugin-contacts/www/contacts.js",
         "pluginId": "cordova-plugin-contacts",
@@ -106,7 +98,6 @@ module.exports.metadata =
 {
     "cordova-plugin-inappbrowser": "1.0.1",
     "cordova-plugin-whitelist": "1.0.0",
-    "onesignal-cordova-plugin": "1.13.1",
     "cordova-plugin-compat": "1.0.0",
     "cordova-plugin-contacts": "2.1.0"
 };

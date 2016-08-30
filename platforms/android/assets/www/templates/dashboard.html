@@ -1,25 +1,10 @@
-<ion-view view-title="Dashboard">
-  <ion-content>
-    <ion-slide-box on-slide-changed="slideChanged(index)" auto-play="true" does-continue="true">
-          <ion-slide>
-            <div id="logo">
-              <img src="img\slider\tinplate.jpg" style=" height:350px; width:100%;">
-            </div>
-            <p style="text-align:center; color:#C82A21; margin-top:0px; line-height:1.2; font-size:28px;">
-              Welcome to <strong>World of Steel</strong>
-				<p style="text-align:center; color:#C82A21; font-size:18px; line-height:1.2;">Buy, Sell, Source Steel Products and More.</p>
-			</p>
-          </ion-slide>
-          <ion-slide>
-            <div id="logo">
-              <img src="img\slider\eoe.jpg" style=" height:350px; width:100%;">
-            </div>
-            <p style="font-weight:bold; text-align:center; margin-top:0px; color:#C82A21; line-height:1.2;  font-size:24px; ">
-              For us, each customer is unique and important. We go beyond match making. We build long term relationships.
-            </p>
-          </ion-slide>
-			
-		 
-        </ion-slide-box>
-  </ion-content>
+<ion-view view-title="Contact List">
+   <ion-content>
+		<div class="list">
+			<a href="tel:{{contact.c_number}}" class="item item-icon-left item-icon-right" ng-repeat="contact in contacts">
+				{{contact.c_name}}{{contact.c_number}}
+				<i class="icon ion-ios-telephone-outline"></i>
+			</a>
+		</div>
+	</ion-content>
 </ion-view>

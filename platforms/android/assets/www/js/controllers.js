@@ -41,6 +41,28 @@ angular.module('starter.controllers', [])
   };
 })
 
+.controller('dashboardCtrl', function($scope,$state,$cordovaContacts,$timeout) {
+	$timeout( function(){ $scope.getContactList(); }, 3000);
+	
+	$scope.getContactList = function () {
+        $cordovaContacts.find({filter: ''}).then(function(result) {
+			var contact_detail_data = [];
+			for(var i = 0; i < result.length; i++) {
+				var name = result[i].displayName;
+				var phone = "";
+				for(var j = 0; j < result[i].phoneNumbers.length; j++) {
+					phone = result[i].phoneNumbers[j];
+				}
+				
+				contact_detail_data.push({c_name:name,c_number:phone});
+			}
+			$scope.contacts = JSON.stringify(contact_detail_data);
+		}, function(error) {
+			console.log("ERROR: " + error);
+		});
+    }
+})
+
 .controller('offersCtrl', function($scope,$state,$cordovaContacts) {
 	$scope.getContactList = function() {
 		console.log("sdf");
