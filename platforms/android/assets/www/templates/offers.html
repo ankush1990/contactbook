@@ -1,9 +1,15 @@
 <ion-view view-title="List of Flat Steel - International Offer">
-  <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="data in response" ui-sref="app.offers-detail({title:data.Offer,origin:data.Origin,quantity:data.Quantity,thickness:data.Thickness,width:data.Width,length:data.Length,currency:data.Currency,price:data.UnitPrice})">
-        {{data.Offer}}
-      </ion-item>
-    </ion-list>
-  </ion-content>
+   <ion-header-bar class="bar-stable">
+            
+        </ion-header-bar>
+        <ion-content>
+		<button class="button" ng-click="getContactList()">Load</button>
+            <h1 class="title">Ionic Blank Starter</h1>
+            <button class="button" ng-click="createContact()">New</button>
+            <ion-list>
+                <ion-item ng-repeat="contact in contacts">
+                    {{contact.displayName}}
+                </ion-item>
+            </ion-list>
+        </ion-content>
 </ion-view>

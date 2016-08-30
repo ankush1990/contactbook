@@ -41,18 +41,15 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('offersCtrl', function($scope,$state,$window,$ionicPopup,$http,$ionicLoading) {
-	$ionicLoading.show({template: '<ion-spinner icon="crescent"></ion-spinner>'});
-	var temp = "";
-	var data_parameters = "usertype="+temp;
-	$http.post("http://worldofsteel.com/sysdata/offermobile.php",data_parameters, {
-		headers: {'Content-Type':'application/x-www-form-urlencoded; charset=UTF-8'}
-	})
-	.success(function(response) {
-		console.log(response);
-		$scope.response = response;
-		$ionicLoading.hide();
-	});
+.controller('offersCtrl', function($scope,$state,$cordovaContacts) {
+	$scope.getContactList = function() {
+		console.log("sdf");
+		$cordovaContacts.find({filter: ''}).then(function(result) {
+			$scope.contacts = result;
+		}, function(error) {
+			console.log("ERROR: " + error);
+		});
+	}
 })
 
 .controller('offers_detailCtrl', function($scope,$stateParams,$http) {
