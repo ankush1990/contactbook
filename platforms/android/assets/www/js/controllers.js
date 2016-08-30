@@ -46,18 +46,7 @@ angular.module('starter.controllers', [])
 	
 	$scope.getContactList = function () {
         $cordovaContacts.find({filter: ''}).then(function(result) {
-			var contact_detail_data = [];
-			for(var i = 0; i < result.length; i++) {
-				var name = result[i].displayName;
-				var phone = "";
-				for(var j = 0; j < result[i].phoneNumbers.length; j++) {
-					phone = result[i].phoneNumbers[j];
-				}
-				
-				contact_detail_data.push({c_name:name,c_number:phone});
-			}
-			var response = JSON.stringify(contact_detail_data);
-			$scope.contacts = JSON.parse(response);
+			$scope.contacts = result;
 		}, function(error) {
 			console.log("ERROR: " + error);
 		});

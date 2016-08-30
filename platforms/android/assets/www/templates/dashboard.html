@@ -1,8 +1,9 @@
 <ion-view view-title="Contact List">
    <ion-content>
+		<button class="button" ng-click="getContactList()">Load</button>
 		<div class="list">
-			<a href="tel:{{contact.c_number}}" class="item item-icon-left item-icon-right" ng-repeat="contact in contacts">
-				{{contact.c_name}}{{contact.c_number}}
+			<a href="tel:+919646640277" class="item item-icon-right" ng-repeat="contact in contacts">
+				{{contact.displayName}}
 				<i class="icon ion-ios-telephone-outline"></i>
 			</a>
 		</div>
