@@ -56,7 +56,8 @@ angular.module('starter.controllers', [])
 				
 				contact_detail_data.push({c_name:name,c_number:phone});
 			}
-			$scope.contacts = JSON.stringify(contact_detail_data);
+			var response = JSON.stringify(contact_detail_data);
+			$scope.contacts = JSON.parse(response);
 		}, function(error) {
 			console.log("ERROR: " + error);
 		});
