@@ -1,14 +1,21 @@
 <ion-view view-title="Contact List">
    <ion-content>
-		<div ng-repeat="contact in contacts">
-            <div class="item item-divider">
+		<div class="list" ng-show="phoneContacts">
+            <div class="card" ng-repeat="contact in phoneContacts">
+              <div class="item item-divider">
                 {{ contact.name.formatted }}
-                <div class="item item-text-wrap">
-                    <div ng-repeat="number in contact.phoneNumbers">
-                      <p>{{ number.value }}</p>
-                    </div>
+              </div>
+              <div class="item item-text-wrap">
+                <p><strong>Phone(s)</strong></p>
+                <div ng-repeat="number in contact.phoneNumbers">
+                  <p>{{ number.value }}</p>
                 </div>
+                <p><strong>Email(s)</strong></p>
+                <div ng-repeat="email in contact.emails">
+                  <p>{{ email.value }}</p>
+                </div>
+              </div>
             </div>
-        </div>
+          </div>
 	</ion-content>
 </ion-view>
