@@ -17,7 +17,7 @@
  under the License.
  */
 //
-// Prefix header for all source files of the 'splash' target in the 'splash' project
+// Prefix header for all source files of the 'Contactbook' target in the 'Contactbook' project
 //
 
 #ifdef __OBJC__
