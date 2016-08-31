@@ -11,11 +11,11 @@
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
     <name>Contactbook</name>
-    <description>
-       Contactbook application.
+    <description>
+       Contactbook application.
     </description>
-    <author email="support@phonegap.com" href="http://phonegap.com">
-        Makerits Software Solutions
+    <author email="support@phonegap.com" href="http://phonegap.com">
+        Makerits Software Solutions
     </author>
     <content src="index.html" />
     <gap:plugin name="com.ionic.keyboard" version="1.0.3" />
