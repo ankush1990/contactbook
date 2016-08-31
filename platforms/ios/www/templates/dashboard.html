@@ -5,17 +5,15 @@
               <div class="item item-divider">
                 {{ contact.name.formatted }}
               </div>
-              <div class="item item-text-wrap">
+              <div class="item item-text-wrap item-icon-right">
                 <p><strong>Phone(s)</strong></p>
-                <div ng-repeat="number in contact.phoneNumbers">
-                  <p>{{ number.value }}</p>
-                </div>
-                <p><strong>Email(s)</strong></p>
-                <div ng-repeat="email in contact.emails">
-                  <p>{{ email.value }}</p>
-                </div>
+                <a ng-repeat="number in contact.phoneNumbers" href="tel:{{ number.value }}">
+                  <p>{{ number.value }}</p><i class="icon ion-ios-telephone-outline"></i>
+                </a>
               </div>
             </div>
           </div>
 	</ion-content>
 </ion-view>
+
+

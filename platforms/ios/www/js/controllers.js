@@ -42,15 +42,16 @@ angular.module('starter.controllers', [])
 })
 
 .controller('dashboardCtrl', function($scope,$state,$cordovaContacts,$timeout,$ionicLoading) {
-	$timeout( function(){ $scope.getContactList(); }, 3000);
-	
+	$timeout( function(){ $scope.getContactList(); },1500);
+	$ionicLoading.show({template: '<ion-spinner icon="crescent"></ion-spinner>'});
 	$scope.getContactList = function() {
-		 $scope.phoneContacts = [];
+		$scope.phoneContacts = [];
 
 		function onSuccess(contacts) {
 		  for (var i = 0; i < contacts.length; i++) {
 			var contact = contacts[i];
 			$scope.phoneContacts.push(contact);
+			$ionicLoading.hide();
 		  }
 		};
 	
@@ -60,9 +61,8 @@ angular.module('starter.controllers', [])
 	
 		var options = {};
 		options.multiple = true;
-	
+		options.hasPhoneNumber = true;
 		$cordovaContacts.find(options).then(onSuccess, onError);
-	  
 	}
 })
 
