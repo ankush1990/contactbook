@@ -2,13 +2,9 @@
    <ion-content>
 		<div class="list" ng-show="phoneContacts">
             <div class="card" ng-repeat="contact in phoneContacts">
-              <div class="item item-divider">
-                {{ contact.name.formatted }}
-              </div>
               <div class="item item-text-wrap item-icon-right">
-                <p><strong>Phone(s)</strong></p>
-                <a ng-repeat="number in contact.phoneNumbers" href="tel:{{ number.value }}">
-                  <p>{{ number.value }}</p><i class="icon ion-ios-telephone-outline"></i>
+                <a ng-repeat="number in contact.phoneNumbers" ng-show="number.value != null" href="tel:{{ number.value }}">
+                  <p>{{ contact.name.formatted }}</p><i class="icon ion-ios-telephone-outline"></i>
                 </a>
               </div>
             </div>
