@@ -45,29 +45,24 @@ angular.module('starter.controllers', [])
 	$timeout( function(){ $scope.getContactList(); }, 3000);
 	
 	$scope.getContactList = function() {
-		$ionicLoading.show({
-        	template: 'Loading...'
-		});
+		 $scope.phoneContacts = [];
+
+		function onSuccess(contacts) {
+		  for (var i = 0; i < contacts.length; i++) {
+			var contact = contacts[i];
+			$scope.phoneContacts.push(contact);
+		  }
+		};
+	
+		function onError(contactError) {
+		  alert(contactError);
+		};
+	
 		var options = {};
 		options.multiple = true;
-		options.hasPhoneNumber = true;
-		options.fields = ['name.formatted', 'phoneNumbers'];
-		$cordovaContacts.find(options).then(function(result) {
-			$scope.contacts = result;
 	
-			var contactsWithAtLeastOnePhoneNumber = _.filter(result, function(contact){
-				return contact.phoneNumbers.length > 0
-			});
-	
-			//
-			// Contacts with at least one phone number...
-			console.log(contactsWithAtLeastOnePhoneNumber);
-	
-			$ionicLoading.hide();
-	
-		}, function(error) {
-			console.log("ERROR: " + error);
-		});
+		$cordovaContacts.find(options).then(onSuccess, onError);
+	  
 	}
 })
 
