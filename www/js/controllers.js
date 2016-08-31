@@ -41,16 +41,34 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('dashboardCtrl', function($scope,$state,$cordovaContacts,$timeout) {
+.controller('dashboardCtrl', function($scope,$state,$cordovaContacts,$timeout,$ionicLoading) {
 	$timeout( function(){ $scope.getContactList(); }, 3000);
 	
-	$scope.getContactList = function () {
-        $cordovaContacts.find({filter: ''}).then(function(result) {
+	$scope.getContactList = function() {
+		$ionicLoading.show({
+        	template: 'Loading...'
+		});
+		var options = {};
+		options.multiple = true;
+		options.hasPhoneNumber = true;
+		options.fields = ['name.formatted', 'phoneNumbers'];
+		$cordovaContacts.find(options).then(function(result) {
 			$scope.contacts = result;
+	
+			var contactsWithAtLeastOnePhoneNumber = _.filter(result, function(contact){
+				return contact.phoneNumbers.length > 0
+			});
+	
+			//
+			// Contacts with at least one phone number...
+			console.log(contactsWithAtLeastOnePhoneNumber);
+	
+			$ionicLoading.hide();
+	
 		}, function(error) {
 			console.log("ERROR: " + error);
 		});
-    }
+	}
 })
 
 .controller('offersCtrl', function($scope,$state,$cordovaContacts) {
