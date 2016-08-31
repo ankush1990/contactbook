@@ -4,7 +4,7 @@ var globalip = "45.79.145.23/truhome.co/public_html/phonegapservices";
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,17 +19,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
-	//one signal code
-	var notificationOpenedCallback = function(jsonData) {
-		console.log('didReceiveRemoteNotificationCallBack: ' + JSON.stringify(jsonData));
-	};
-
-	window.plugins.OneSignal.init("1eb095de-4015-4a67-899b-e38da22ae0df",
-									{googleProjectNumber: "600906789732"},
-									notificationOpenedCallback);
-  
-	// Show an alert box if a notification comes in when the user is in your app.
-	window.plugins.OneSignal.enableInAppAlertNotification(true);
+	
   });
 })
 
@@ -47,7 +37,8 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     url: '/dashboard',
     views: {
       'menuContent': {
-        templateUrl: 'templates/dashboard.html'
+        templateUrl: 'templates/dashboard.html',
+		controller: 'dashboardCtrl'
       }
     }
   })
