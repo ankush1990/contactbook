@@ -97,7 +97,9 @@ angular.module('starter.controllers', [])
 		  console.log("Error:"+result);
 		}
 		
-		window.plugins.CallNumber.callNumber(onSuccess, onError, username, bypassAppChooser);
+		//window.plugins.CallNumber.callNumber(onSuccess, onError, username, bypassAppChooser);
+		window.plugins.CallNumber.callNumber(onSuccess, onError, username);
+		
 	}
 	
 })
