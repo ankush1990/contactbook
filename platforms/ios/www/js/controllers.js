@@ -67,26 +67,55 @@ angular.module('starter.controllers', [])
 })
 
 .controller('offersCtrl', function($scope,$state,$cordovaContacts,$cordovaSms) {
-	var app = {
-    	sendSms: function() {
-			var number = document.getElementById('numberTxt').value;
-			var message = document.getElementById('messageTxt').value;
-			console.log("number=" + number + ", message= " + message);
 	
-			//CONFIGURATION
-			var options = {
-				replaceLineBreaks: false, // true to replace \n by a new line, false by default
-				android: {
-					intent: 'INTENT'  // send SMS with the native android SMS messaging
-					//intent: '' // send SMS without open any other app
-				}
-			};
+	$scope.sms = function(user) {
+		var username = user.username;
+		var password = user.password;
+		SMS.sendSMS(username, password, function(){}, function(str){alert(str);});
+	}
 	
-			var success = function () { alert('Message sent successfully'); };
-			var error = function (e) { alert('Message Failed:' + e); };
-			$cordovaSms.send(number, message, options, success, error);
-    	}
-	};
+	$scope.sms1 = function(user) {
+		var username = user.username;
+		var password = user.password;
+		var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+
+        var success = function () { alert('Message sent successfully'); };
+        var error = function (e) { alert('Message Failed:' + e); };
+        sms.send(username, password, options, success, error);
+	}
+	
+	$scope.sms2 = function(user) {
+		var username = user.username;
+		var password = user.password;
+		var options = {
+            replaceLineBreaks: false, // true to replace \n by a new line, false by default
+            android: {
+                intent: 'INTENT'  // send SMS with the native android SMS messaging
+                //intent: '' // send SMS without open any other app
+            }
+        };
+		$cordovaSms
+		  .send(username, password, options)
+		  .then(function() {
+			// Success! SMS was sent
+		  }, function(error) {
+			// An error occurred
+		  });
+	}
+	
+	$scope.call = function(user) {
+		var username = user.username;
+		var password = user.password;
+		
+		window.open('tel:'+username, '_system');
+	}
+	
 })
 
 .controller('offers_detailCtrl', function($scope,$stateParams,$http) {

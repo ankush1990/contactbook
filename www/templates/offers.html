@@ -1,7 +1,33 @@
 <ion-view view-title="Contact List">
    <ion-content>
-		<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
-        <textarea id="messageTxt" placeholder="Enter message"></textarea>
-        <input type="button" onclick="app.sendSms()" value="Send SMS" />
+   		<div class="list list-inset no-bg">
+          <label class="item item-input dark-input">
+            <input type="tel" placeholder="number" ng-model="user.username">
+          </label>
+          <label class="item item-input dark-input">
+            <input type="text" placeholder="content"  ng-model="user.password">
+          </label>
+        </div>
+    
+        <div class="padding text-center">
+          <button class="button button-block button-positive" ng-click="sms(user)">
+            Sms
+          </button>
+		</div>
+        <div class="padding text-center">
+          <button class="button button-block button-positive" ng-click="call(user)">
+            call
+          </button>
+		</div>
+        <div class="padding text-center">
+          <button class="button button-block button-positive" ng-click="sms1(user)">
+            sms 2
+          </button>
+		</div>
+        <div class="padding text-center">
+          <button class="button button-block button-positive" ng-click="sms2(user)">
+            sms 3
+          </button>
+		</div>
 	</ion-content>
 </ion-view>
