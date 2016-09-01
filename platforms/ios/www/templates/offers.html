@@ -1,12 +1,7 @@
 <ion-view view-title="Contact List">
    <ion-content>
-		<div ng-repeat="contact in contacts">
-        	<a class="item item-icon-left item-icon-right" href="tel:{{ number.value }}"  ng-repeat="number in contact.phoneNumbers">
-            	<i class="icon ion-chatbubble-working"></i>
-            		{{ contact.name.formatted }}{{ number.value }}
-            	<i class="icon ion-ios-telephone-outline"></i>
-          	</a>
-        </div>
-    </ion-content>
+		<input id="numberTxt" placeholder="Enter mobile number" value="" type="tel" />
+        <textarea id="messageTxt" placeholder="Enter message"></textarea>
+        <input type="button" onclick="app.sendSms()" value="Send SMS" />
+	</ion-content>
 </ion-view>
-

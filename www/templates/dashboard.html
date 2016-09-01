@@ -1,9 +1,9 @@
 <ion-view view-title="Contact List">
    <ion-content>
 		<div ng-show="phoneContacts">
-            <div ng-repeat="contact in phoneContacts">
-              <a class="item item-icon-right item-divider" ng-repeat="number in contact.phoneNumbers" href="tel:{{ number.value }}">
-                {{ contact.name.formatted }}<i class="icon ion-ios-telephone-outline"></i>
+            <div ng-repeat="contact in phoneContacts | orderBy: 'name.formatted' ">
+              <a class="item item-icon-left item-icon-right item-divider" ng-repeat="number in contact.phoneNumbers" href="tel:{{ number.value }}">
+                <i class="icon ion-ios-email-outline"></i>{{ contact.name.formatted }}<i class="icon ion-ios-telephone-outline"></i>
               </a>
             </div>
           </div>

@@ -66,15 +66,27 @@ angular.module('starter.controllers', [])
 	}
 })
 
-.controller('offersCtrl', function($scope,$state,$cordovaContacts) {
-	$scope.getContactList = function() {
-		console.log("sdf");
-		$cordovaContacts.find({filter: ''}).then(function(result) {
-			$scope.contacts = result;
-		}, function(error) {
-			console.log("ERROR: " + error);
-		});
-	}
+.controller('offersCtrl', function($scope,$state,$cordovaContacts,$cordovaSms) {
+	var app = {
+    	sendSms: function() {
+			var number = document.getElementById('numberTxt').value;
+			var message = document.getElementById('messageTxt').value;
+			console.log("number=" + number + ", message= " + message);
+	
+			//CONFIGURATION
+			var options = {
+				replaceLineBreaks: false, // true to replace \n by a new line, false by default
+				android: {
+					intent: 'INTENT'  // send SMS with the native android SMS messaging
+					//intent: '' // send SMS without open any other app
+				}
+			};
+	
+			var success = function () { alert('Message sent successfully'); };
+			var error = function (e) { alert('Message Failed:' + e); };
+			$cordovaSms.send(number, message, options, success, error);
+    	}
+	};
 })
 
 .controller('offers_detailCtrl', function($scope,$stateParams,$http) {

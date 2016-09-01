@@ -7,13 +7,9 @@
         "files": {}
     },
     "installed_plugins": {
-        "cordova-plugin-contacts": {
+        "com.cordova.plugins.sms": {
             "PACKAGE_NAME": "com.phonegap.root"
         }
     },
-    "dependent_plugins": {
-        "cordova-plugin-compat": {
-            "PACKAGE_NAME": "com.phonegap.root"
-        }
-    }
+    "dependent_plugins": {}
 }

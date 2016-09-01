@@ -15,6 +15,9 @@
         },
         "cordova-plugin-contacts": {
             "PACKAGE_NAME": "com.phonegap.root"
+        },
+        "com.cordova.plugins.sms": {
+            "PACKAGE_NAME": "com.phonegap.root"
         }
     },
     "dependent_plugins": {
