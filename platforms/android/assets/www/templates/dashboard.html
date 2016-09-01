@@ -14,7 +14,7 @@
 		<div ng-show="phoneContacts">
             <div ng-repeat="contact in phoneContacts  | filter:search | orderBy: 'displayName' ">
               <a class="item item-icon-left item-icon-right item-divider" ng-repeat="number in contact.phoneNumbers">
-                <i class="icon ion-ios-email-outline" ng-click="sendsms({{ number.value }})"></i>{{ contact.name.formatted }}<i class="icon ion-ios-telephone-outline" ng-click="docall({{ number.value }})"></i>
+                <i class="icon ion-ios-email-outline" ng-click="sendsms(number.value)"></i>{{ contact.name.formatted }}<i class="icon ion-ios-telephone-outline" ng-click="docall({{ number.value }})"></i>
               </a>
             </div>
           </div>

@@ -67,7 +67,7 @@ angular.module('starter.controllers', [])
 	
 	
 	$scope.sendsms = function(number) {
-		var content = "Hello! Welcome to contact book";
+		var content = "Hello Welcome to contact book";
 		SMS.sendSMS(number, content, function(){}, function(str){alert(str);});
 	}
 	
