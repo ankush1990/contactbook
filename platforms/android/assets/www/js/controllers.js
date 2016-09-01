@@ -74,46 +74,19 @@ angular.module('starter.controllers', [])
 		SMS.sendSMS(username, password, function(){}, function(str){alert(str);});
 	}
 	
-	$scope.sms1 = function(user) {
-		var username = user.username;
-		var password = user.password;
-		var options = {
-            replaceLineBreaks: false, // true to replace \n by a new line, false by default
-            android: {
-                intent: 'INTENT'  // send SMS with the native android SMS messaging
-                //intent: '' // send SMS without open any other app
-            }
-        };
-
-        var success = function () { alert('Message sent successfully'); };
-        var error = function (e) { alert('Message Failed:' + e); };
-        sms.send(username, password, options, success, error);
-	}
-	
-	$scope.sms2 = function(user) {
-		var username = user.username;
-		var password = user.password;
-		var options = {
-            replaceLineBreaks: false, // true to replace \n by a new line, false by default
-            android: {
-                intent: 'INTENT'  // send SMS with the native android SMS messaging
-                //intent: '' // send SMS without open any other app
-            }
-        };
-		$cordovaSms
-		  .send(username, password, options)
-		  .then(function() {
-			// Success! SMS was sent
-		  }, function(error) {
-			// An error occurred
-		  });
-	}
-	
 	$scope.call = function(user) {
 		var username = user.username;
 		var password = user.password;
 		
-		window.open('tel:'+username, '_system');
+		function onSuccess(result){
+		  console.log("Success:"+result);
+		}
+		
+		function onError(result) {
+		  console.log("Error:"+result);
+		}
+		
+		window.plugins.CallNumber.callNumber(onSuccess, onError, username, bypassAppChooser);
 	}
 	
 })
