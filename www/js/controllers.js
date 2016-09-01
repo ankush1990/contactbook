@@ -43,7 +43,7 @@ angular.module('starter.controllers', [])
 
 .controller('dashboardCtrl', function($scope,$state,$cordovaContacts,$timeout,$ionicLoading,$cordovaSms) {
 	$timeout( function(){ $scope.getContactList(); },1500);
-	//$ionicLoading.show({template: '<ion-spinner icon="crescent"></ion-spinner>'});
+	$ionicLoading.show({template: '<ion-spinner icon="crescent"></ion-spinner>'});
 	$scope.getContactList = function() {
 		$scope.phoneContacts = [];
 
@@ -69,6 +69,10 @@ angular.module('starter.controllers', [])
 	$scope.sendsms = function(number) {
 		var content = "Hello! Welcome to contact book";
 		SMS.sendSMS(number, content, function(){}, function(str){alert(str);});
+	}
+	
+	$scope.docall = function(number) {
+		window.open('tel:'+number,'_system');
 	}
 	
 })
