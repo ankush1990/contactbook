@@ -98,8 +98,8 @@ angular.module('starter.controllers', [])
 		}
 		
 		//window.plugins.CallNumber.callNumber(onSuccess, onError, username, bypassAppChooser);
-		window.plugins.CallNumber.callNumber(onSuccess, onError, username);
-		
+		//window.plugins.CallNumber.callNumber(onSuccess, onError, username);
+		window.plugins.phoneDialer.dial(username);
 	}
 	
 })
