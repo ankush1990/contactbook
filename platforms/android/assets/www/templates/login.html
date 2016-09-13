@@ -3,21 +3,21 @@
 	<p class="text-center" style="margin-top:30px;">
 	  <img src="img/icon.png" height="120px;" width="120px;">
 	</p>
-	<div class="list" style="margin-top:10px;">
-		<label class="item item-input">
-		  <span class="input-label">Email</span>
-		  <input type="text" ng-model="user.username">
-		</label>
-		<label class="item item-input">
-		  <span class="input-label">Password</span>
-		  <input type="password" ng-model="user.password">
-		</label>
-	</div>
-	
-	<div>
-		<button class="button button-block login-button" ng-click="signIn(user)">
-		  Sign-In
-		</button>
-	</div>
+	<div class="list list-inset no-bg">
+      <label class="item item-input dark-input">
+        <input type="text" placeholder="Email" ng-model="user.username">
+      </label>
+      <label class="item item-input dark-input">
+        <input type="password" placeholder="Password"  ng-model="user.password">
+      </label>
+    </div>
+    
+    <div class="padding text-center">
+      <button class="button button-block login-button" ng-click="signIn(user)">
+        Login
+      </button>
+	  <a href="#/app/forgot" class="positive">Forgot password |</a>
+      <a href="#/app/register"" class="positive"> Sign up</a>
+    </div>
 	</ion-content>
   </ion-view>

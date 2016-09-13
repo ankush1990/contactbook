@@ -18,11 +18,14 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close class="item item-icon-left"  href="#/app/dashboard">
+        <ion-item menu-close class="item item-icon-left"  href="#/app/dashboard" ng-controller="LogoutCtrl" ng-show="login != ''">
           <i class="icon ion-home"></i>Dashboard
         </ion-item>
-       <ion-item menu-close class="item item-icon-left" href="#/app/offers">
-          <i class="icon ion-android-apps"></i>Offers
+        <ion-item menu-close class="item item-icon-left" href="#/app/login" ng-controller="LogoutCtrl" ng-click='logout()' ng-show="login != ''">
+          <i class="icon ion-log-in"></i>Logout
+        </ion-item>
+       <ion-item menu-close class="item item-icon-left" href="#/app/login" ng-controller="LogoutCtrl" ng-show="login == ''">
+          <i class="icon ion-log-in"></i>Login
         </ion-item>
         <!--<ion-item menu-close class="item item-icon-left" href="#/app/about">
           <i class="icon ion-person"></i>About

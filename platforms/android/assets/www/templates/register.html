@@ -1,0 +1,36 @@
+<ion-view view-title="Registration" class="main-bg-color">
+  <ion-content>
+    <!-- Logo -->
+    <div class="padding text-center">
+      <h1>
+        <i class="energized ion-bag"></i>
+      </h1>
+      <h2 class="energized">Contact Book</h2>
+      <p class="energized">Contacts Management</p>
+    </div>
+
+    <!-- Signup form -->
+    <div class="list list-inset no-bg">
+      <label class="item item-input dark-input">
+        <input type="text" placeholder="Email" ng-model="user.register_email">
+      </label>
+	  <label class="item item-input dark-input">
+        <input type="text" placeholder="Your Name" ng-model="user.register_name">
+      </label>
+      <label class="item item-input dark-input">
+        <input type="password" placeholder="Password" ng-model="user.register_password">
+      </label>
+	  <label class="item item-input dark-input">
+        <input type="password" placeholder="Confirm Password" ng-model="user.register_cpassword">
+      </label>
+    </div>
+
+    <div class="padding text-center">
+      <button class="button button-block login-button" ng-click="register(user)">
+        Create account
+      </button>
+      <a href="#/app/login" class="positive">Login</a>
+    </div>
+
+  </ion-content>
+</ion-view>

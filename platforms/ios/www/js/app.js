@@ -1,5 +1,5 @@
 // Ionic Starter App
-var globalip = "45.79.145.23/truhome.co/public_html/phonegapservices";
+var globalurl = "http://neoterichs.com/contactbook/get_hint.php";
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
@@ -46,7 +46,28 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
     url: '/login',
     views: {
       'menuContent': {
-        templateUrl: 'templates/login.html'
+        templateUrl: 'templates/login.html',
+		controller: 'AuthCtrl'
+      }
+    }
+  })
+  
+  .state('app.register', {
+    url: '/register',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/register.html',
+		controller: 'AuthCtrl'
+      }
+    }
+  })
+  
+  .state('app.forgot', {
+    url: '/forgot',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/forgot.html',
+		controller: 'AuthCtrl'
       }
     }
   })
@@ -104,7 +125,7 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
       }
     });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/dashboard');
+  $urlRouterProvider.otherwise('/app/login');
 })
 
 .directive('map', function() {
